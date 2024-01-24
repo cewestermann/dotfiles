@@ -1,0 +1,94 @@
+set nocompatible 
+syntax on
+filetype off
+
+set shellslash
+set rtp+=~/vimfiles/bundle/Vundle.vim
+call vundle#begin('~/vimfiles/bundle')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'NLKNguyen/papercolor-theme'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+syntax enable
+
+set term=xterm
+set t_Co=256
+
+" --- GUI OPTIONS ---
+set guioptions-=m
+set guioptions-=T
+
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=100 columns=100
+  set guifont=Consolas:h14
+
+  set laststatus=2
+  set statusline+=\ %f\ \ \ \ "
+  set statusline+=col:\ %c\ \ \ \ "
+  set statusline+=ln:\ %l/%L\ \ \ \ "
+  set statusline+=%{(strlen(&fileencoding)?&fileencoding:&encoding).((exists('+bomb')&&&bomb)?'-with-bom':'')}\ \ \ \ "
+
+endif
+
+" --- END GUI OPTIONS ---
+
+" Sound config
+set noerrorbells
+set novisualbell
+set belloff=all
+
+set ignorecase
+
+set smartcase
+
+" Highlight searches and do incremental search
+set hlsearch
+set incsearch
+
+set lazyredraw
+
+" For regular expressions
+set magic
+
+" Matching brackets
+set showmatch
+
+set background=dark
+
+colorscheme PaperColor
+
+
+set encoding=utf8
+
+" Standard file type
+set ffs=unix,dos,mac
+
+" No annoying backup / swap files
+set nobackup
+set nowb
+set noswapfile
+
+" Tab / spaces / indents
+set expandtab
+
+set smarttab
+
+set shiftwidth=2
+set tabstop=2
+
+" Auto indent
+set ai
+" Smart indent
+set si
+" Wrap lines
+set wrap
