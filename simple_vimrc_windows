@@ -1,0 +1,85 @@
+set nocompatible
+filetype off
+
+set shellslash
+set rtp+=~/vimfiles/bundle/Vundle.vim
+call vundle#begin('~/vimfiles/bundle')
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'fcpg/vim-fahrenheit'
+Plugin 'tpope/vim-dispatch'
+
+call vundle#end()
+
+filetype plugin indent on
+
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+syntax enable
+
+set term=xterm
+set t_Co=256
+set guioptions-=m " Remove menu bar
+set guioptions-=T " Remove toolbar
+set guioptions-=r " Remove scrollbar
+set guifont=Consolas:h12
+
+" Sound config
+set noerrorbells
+set novisualbell
+set belloff=all
+
+" Search
+set ignorecase
+set smartcase
+
+" Highlight searches and do incremental search
+set hlsearch
+set incsearch
+
+set lazyredraw
+
+set showmatch " Matching brackets
+
+set background=dark
+colorscheme fahrenheit
+
+" Standard file type
+set ffs=unix,dos,mac
+
+" No annoying backup / swap files
+set nobackup
+set nowb
+set noswapfile
+
+" Tab / spaces/ indents
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+set ai
+set si
+set wrap
+
+" Vim list mappings
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+" Filetype Bindings
+autocmd FileType make setlocal noexpandtab
+
+" Termdebug stuff
+packadd termdebug
+let g:termdebug_wide=1
+
+noremap <silent> <leader>td :Termdebug<cr>
+
+" noremap <silent> <leader>s :Step<cr>
+" noremap <silent> <leader>o :Over<cr>
+" noremap <silent> <leader>n :Next<cr>
+" noremap <silent> <leader>td :Termdebug<cr>
